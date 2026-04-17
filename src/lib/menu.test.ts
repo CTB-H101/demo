@@ -18,6 +18,7 @@ describe('menu utilities', () => {
   it('returns null when menu text format is invalid', () => {
     expect(parseMenuText('Cheese Burger 8.50')).toBeNull()
     expect(parseMenuText('Cheese Burger | not-a-number')).toBeNull()
+    expect(parseMenuText('Free Water | 0')).toBeNull()
   })
 
   it('serializes menu as editable text', () => {

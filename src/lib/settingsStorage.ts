@@ -17,11 +17,18 @@ function isValidConfig(value: unknown): value is SystemConfig {
   const candidate = value as Record<string, unknown>
   return (
     isFiniteNumber(candidate.alpha) &&
+    candidate.alpha > 0 &&
     isFiniteNumber(candidate.beta) &&
+    candidate.beta > 0 &&
     isFiniteNumber(candidate.gamma) &&
+    candidate.gamma > 0 &&
     isFiniteNumber(candidate.queueTimeMultiplier) &&
+    candidate.queueTimeMultiplier > 0 &&
     isFiniteNumber(candidate.decayRate) &&
-    isFiniteNumber(candidate.decayIntervalMs)
+    candidate.decayRate >= 0 &&
+    candidate.decayRate < 1 &&
+    isFiniteNumber(candidate.decayIntervalMs) &&
+    candidate.decayIntervalMs >= 5000
   )
 }
 

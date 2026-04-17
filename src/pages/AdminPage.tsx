@@ -179,11 +179,11 @@ export function AdminPage({
       !Number.isFinite(alpha) ||
       !Number.isFinite(beta) ||
       !Number.isFinite(gamma) ||
-      alpha < 0 ||
-      beta < 0 ||
-      gamma < 0
+      alpha <= 0 ||
+      beta <= 0 ||
+      gamma <= 0
     ) {
-      setConfigMessage('Alpha, beta, and gamma must be non-negative numbers.')
+      setConfigMessage('Alpha, beta, and gamma must be positive numbers (> 0).')
       return
     }
 

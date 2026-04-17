@@ -18,7 +18,7 @@ function isValidMenuItem(value: unknown): value is MenuItem {
     typeof candidate.name === 'string' &&
     typeof candidate.price === 'number' &&
     Number.isFinite(candidate.price) &&
-    candidate.price >= 0
+    candidate.price > 0
   )
 }
 

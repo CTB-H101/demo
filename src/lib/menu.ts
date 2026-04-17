@@ -81,7 +81,7 @@ export function parseMenuText(menuText: string): MenuItem[] | null {
     }
 
     const price = Number(pricePart)
-    if (!Number.isFinite(price) || price < 0) {
+    if (!Number.isFinite(price) || price <= 0) {
       return null
     }
 
