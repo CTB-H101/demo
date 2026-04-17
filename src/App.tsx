@@ -108,7 +108,7 @@ function App() {
   }, [])
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
       <div className="app-shell">
         <header className="top-nav">
           <h1>Campus Food Truck Swarm</h1>
