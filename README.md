@@ -71,6 +71,16 @@ npm run test:e2e    # Playwright e2e tests
 npm run test:all    # unit + e2e
 ```
 
+## GitHub Pages
+
+- This repo is configured for automatic GitHub Pages deployment via:
+  - `.github/workflows/deploy-pages.yml`
+- On every push to `main`, GitHub Actions builds `dist` and deploys it.
+- For this repo (`CTB-H101/demo`), the site URL is:
+  - `https://ctb-h101.github.io/demo/`
+
+If you open `https://ctb-h101.github.io/src/main.tsx`, it will always be 404 because `src` is source code, not deployed build output.
+
 ## Initial Data
 
 The app seeds four trucks:
