@@ -12,10 +12,9 @@ interface HomePageProps {
   onLeaveQueue: (truckId: string) => void
 }
 
-export function HomePage({ foodTrucks, settings, onJoinQueue, onLeaveQueue }: HomePageProps) {
   const { location, isLocating } = useUserLocation()
   const rankedTrucks = useMemo(
-    () => rankFoodTrucks(foodTrucks, location, settings),
+    () => (location ? rankFoodTrucks(foodTrucks, location, settings) : []),
     [foodTrucks, location, settings],
   )
   const [selectedTruckId, setSelectedTruckId] = useState<string | undefined>(undefined)
@@ -30,6 +29,11 @@ export function HomePage({ foodTrucks, settings, onJoinQueue, onLeaveQueue }: Ho
 
     return rankedTrucks[0].id
   }, [rankedTrucks, selectedTruckId])
+
+  // 如果没有定位信息，则不显示地图和推荐面板
+  if (!location) {
+    return null
+  }
 
   return (
     <div className="home-layout">

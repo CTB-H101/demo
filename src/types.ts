@@ -27,7 +27,7 @@ export interface NewFoodTruckInput {
 export interface UserLocation {
   lat: number
   lng: number
-  source: 'gps' | 'fallback'
+  source: 'gps'
 }
 
 export interface RankingWeights {
